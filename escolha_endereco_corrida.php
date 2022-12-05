@@ -22,20 +22,20 @@
         <fieldset>            
             <form action="script.php" method="post">
                 <legend><b>Endereço</b></legend>
-                    <div class = "from-group">
-                        <label for="origem"><b>Origem:</b></label>
+                    <div class = "inputBox">
+                        <label for="origem" class="inputCorrida"><b>Origem:</b></label>
                         <span id="msg_origem"></span>
                     </div>    
-                    <div class = "from-group">
-                        <label for="destino"><b>Destino:</b></label>
+                    <div class = "inputBox">
+                        <label for="destino" class="inputCorrida"><b>Destino:</b></label>
                         <span id="msg"></span>
                     </div>
-                    <div class = "from-group">
-                        <label for="tempo"><b>Tempo estimado de chegada: </b></label>
+                    <div class = "inputBox">
+                        <label for="tempo" class="inputCorrida"><b>Tempo estimado de chegada: </b></label>
                         <span id="distancia_tempo"></span>
                     </div>
-                    <div class = "from-group">
-                        <label for="tempo"><b>Valor da corrida:</b>R$ 5:00</label>
+                    <div class = "inputBox">
+                        <label for="tempo" class="inputCorrida"><b>Valor da corrida:</b>R$ 5:00</label>
                     </div>
                     <!-- O segundo valor estará selecionado inicialmente  -->
                     <div>
