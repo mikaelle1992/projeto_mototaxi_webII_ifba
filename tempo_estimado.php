@@ -1,26 +1,20 @@
 <?php
-require_once('consulta.php');
-require_once('localizacao_atual.php');
+
+$endereco_atual = $_REQUEST["endereco_atual"];
+$endereco_destino = $_REQUEST["endereco_destino"];
+
+die ($endereco_atual+ $endereco_destino);
+
+$destino = "Avenida Vasco Neto, Ubaitaba, Bahia, Brasil";
+$origem = "Av. Walter Passos, 198 - Ubaitaba, BA, 45545-000, Brasil";
 
 
-$destino = $endereco;
-$origem = $endereco_origem;;
-
-
-// $destino = "Avenida Vasco Neto, Ubaitaba, Bahia, Brasil";
-// $origem = "Av. Walter Passos, 198 - Ubaitaba, BA, 45545-000, Brasil";
-// echo $destino, $endereco_origem;
-// echo'<pre>';
-print_r($destino, $endereco_origem);
 // https://maps.googleapis.com/maps/api/distancematrix/json?destinations=Avenida Vasco Neto, Ubaitaba, Bahia, Brasil&language=fr-FR&mode=motorcycle&origins=Av. Walter Passos, 198 - Ubaitaba, BA, 45545-000, Brasil&key=AIzaSyBVE_qu70-1LakWAX0Vkydr-RmGXjZzk5A
 $url = "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=" . $destino . "&language=fr-FR&mode=motorcycle&origins=" . $origem . "&key=AIzaSyBVE_qu70-1LakWAX0Vkydr-RmGXjZzk5A";
 $url_tratado = str_replace(' ', '', $url);
 
 $retorno = file_get_contents($url_tratado);
 $dados = json_decode($retorno, true);
-// echo'<pre>';
-// print_r($dados);
-
 
 $distancia_km = $dados['rows'][0]['elements'][0]['distance']['text'];
 $distancia_minutos = $dados['rows'][0]['elements'][0]['duration']['text'];

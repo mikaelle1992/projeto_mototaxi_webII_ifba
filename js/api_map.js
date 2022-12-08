@@ -187,8 +187,6 @@ function marcadores(map, destino_posicao_latitude, destino_posicao_longitude) {
         draggable: true
 
     });
-    console.log(sua_posicao_latitude);
-    console.log(sua_posicao_longitude);
     
     marcador_destino(map, destino_posicao_latitude, destino_posicao_longitude);
     endereço_origem(sua_posicao_latitude, sua_posicao_longitude)
@@ -206,18 +204,20 @@ function marcador_destino(map, destino_posicao_latitude, destino_posicao_longitu
             draggable: true
 
         });
-    
+   
         destino_posicao_latitude = e.latLng.lat();
         destino_posicao_longitude = e.latLng.lng();
         endereço_coordenadas(destino_posicao_latitude, destino_posicao_longitude);
         distancia_tempo_estimado(destino_posicao_latitude, destino_posicao_longitude);
+        tempo_estimado(destino_posicao_latitude, destino_posicao_longitude);
+
 
     });
 }
 
 
 function endereço_origem(latitude, longitude) {
-    var msg = document.querySelector("#msg_origem");
+    var origem = document.querySelector("#origem");
     var req = new XMLHttpRequest();
 
     var action = "localizacao_atual.php";
@@ -226,18 +226,19 @@ function endereço_origem(latitude, longitude) {
     req.open("GET", action+"?"+ param, true);
     req.onreadystatechange = function () {
         if (req.readyState == 4 && req.status == 200) {
-            document.getElementById("msg_origem").innerHTML = req.responseText;
+            origem.value = req.responseText;
+            endereco_atual(req.responseText);
         }
         else{
-             msg.innerHTML = "Usuario encontrado"; 
+             origem.innerHTML = "Usuario encontrado"; 
         }
     }
-    req.send(msg);
+    req.send(origem);
 }
 
 
 function endereço_coordenadas(latitude, longitude) {
-    var msg = document.querySelector("#msg");
+    var destino = document.querySelector("#destino");
     var req = new XMLHttpRequest();
 
     var action = "consulta.php";
@@ -246,14 +247,18 @@ function endereço_coordenadas(latitude, longitude) {
     req.open("GET", action+"?"+ param, true);
     req.onreadystatechange = function () {
         if (req.readyState == 4 && req.status == 200) {
-            document.getElementById("msg").innerHTML = req.responseText;
+            destino.value = req.responseText;
+            test(req.responseText);
         }
         else{
-             msg.innerHTML = "Usuario encontrado"; 
+             destino.innerHTML = "Usuario encontrado"; 
         }
     }
-    req.send(msg);
+    req.send(destino);
+    
+
 }
+
 
 function distancia_tempo_estimado(latitude, longitude) {
     var msg = document.querySelector("#distancia_tempo");
@@ -273,3 +278,16 @@ function distancia_tempo_estimado(latitude, longitude) {
     }
     req.send(msg);
 }
+
+
+// function tempo_estimado() {
+  
+//     const Http = new XMLHttpRequest();
+//     const url='https://maps.googleapis.com/maps/api/geocode/json?latlng=-14.313373397055184,-39.32032585144043&key=AIzaSyBVE_qu70-1LakWAX0Vkydr-RmGXjZzk5A';
+//     Http.open("GET", url);
+//     Http.send();
+
+//     Http.onreadystatechange = (e) => {
+//     console.log(Http.responseText)
+//     }
+// }

@@ -8,5 +8,18 @@
 </head>
 <body>
     <h1>deu certo</h1>
+    <script type="text/javascript">
+       const Http = new XMLHttpRequest();
+        const url='https://maps.googleapis.com/maps/api/geocode/json?latlng=-14.313373397055184,-39.32032585144043&key=AIzaSyBVE_qu70-1LakWAX0Vkydr-RmGXjZzk5A';
+        Http.open("GET", url);
+        Http.send();
+
+        Http.onreadystatechange = (e) => {
+        console.log(Http.responseText)
+        }
+
+    </script>
+    
+    </script>
 </body>
 </html>
