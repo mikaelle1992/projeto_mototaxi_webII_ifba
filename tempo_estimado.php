@@ -1,10 +1,5 @@
 <?php
 
-$endereco_atual = $_REQUEST["endereco_atual"];
-$endereco_destino = $_REQUEST["endereco_destino"];
-
-die ($endereco_atual+ $endereco_destino);
-
 $destino = "Avenida Vasco Neto, Ubaitaba, Bahia, Brasil";
 $origem = "Av. Walter Passos, 198 - Ubaitaba, BA, 45545-000, Brasil";
 
