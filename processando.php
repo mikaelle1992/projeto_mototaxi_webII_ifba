@@ -8,8 +8,10 @@
     <title>Document</title>
 </head>
 <body>
+
+    
     <script>
-        alert('É importando saber que o valor de R$ 5,00 é apenas para a cidade de Ubaitaba,  as demais localidades a será cobrado o valor de  R$ 8,00');
+        alert('É importando saber, o valor de R$ 5,00 é apenas para a cidade de Ubaitaba,  as demais localidades a será cobrado o valor de  R$ 8,00');
 
         setTimeout(function(){
             window.location.href = "teste.php";

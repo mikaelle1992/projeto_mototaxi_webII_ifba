@@ -19,12 +19,12 @@
 
     <!--Chamada das API's -->
     <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAH4Nf7e2KamSEe0rsZ04KvR4L6jJ7Cmdc&callback=initMap&libraries=geometry"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVE_qu70-1LakWAX0Vkydr-RmGXjZzk5A&callback=initMap&libraries=geometry"
         async defer>
         </script>
     <div id="form">
         <fieldset>
-            <form action="../action/insert_endereco_corrida.php" method="POST">
+            <form action="processando.php" method="POST">
                 <legend><b>Endereço</b></legend>
                 <div class="inputBox">
                     <label for="origem" class="inputCorrida"><b>Origem:</b></label>
